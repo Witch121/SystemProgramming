@@ -62,7 +62,7 @@ void ConvertToANSI(const char* inputFile, const char* outputFile) {
         return;
     }
 
-    if (!input || !output) { // check 
+    if (!input || !output) {
         std::cerr << "Error opening files!" << std::endl;
         if (input) fclose(input);
         if (output) fclose(output);
@@ -76,11 +76,12 @@ void ConvertToANSI(const char* inputFile, const char* outputFile) {
     std::vector<wchar_t> wideBuffer(fileSize / sizeof(wchar_t)); // create the vector of input file in Unicode
     fread(wideBuffer.data(), sizeof(wchar_t), wideBuffer.size(), input); // read the data from input to the vector
 
-    int ansiCharSize = WideCharToMultiByte(CP_ACP, 0, wideBuffer.data(), wideBuffer.size(), NULL, 0, NULL, NULL); // Unicode > ASCI, check the requared size
-    std::vector<char> ansiBuffer(ansiCharSize); // create the vector
-    WideCharToMultiByte(CP_ACP, 0, wideBuffer.data(), wideBuffer.size(), ansiBuffer.data(), ansiCharSize, NULL, NULL); // convert with requared size
+    // Convert from Unicode to ANSI (CP_ACP for English text)
+    int ansiCharSize = WideCharToMultiByte(CP_ACP, 0, wideBuffer.data(), wideBuffer.size(), NULL, 0, "?", NULL);
+    std::vector<char> ansiBuffer(ansiCharSize);
+    WideCharToMultiByte(CP_ACP, 0, wideBuffer.data(), wideBuffer.size(), ansiBuffer.data(), ansiCharSize, "?", NULL);
 
-    fwrite(ansiBuffer.data(), 1, ansiBuffer.size(), output); // write to output file from vector with size of each element 1 
+    fwrite(ansiBuffer.data(), 1, ansiBuffer.size(), output); // write to output file in ANSI
 
     fclose(input);
     fclose(output);

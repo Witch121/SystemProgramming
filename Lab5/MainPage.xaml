@@ -1,0 +1,63 @@
+﻿<Page
+    x:Class="Lab5.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Lab5"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid  Background="{ThemeResource InkToolbarButtonSelectedBackgroundThemeBrush}">
+        <!-- Create a Hub Control for the Start Page -->
+        <Hub Margin="100,100,100,100">
+
+            <HubSection Width="318" Height="150" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <HubSection.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock 
+                            Text="Developer Info" 
+                            FontSize="40" 
+                            FontWeight="Bold" 
+                            Foreground="Black"/>
+                    </DataTemplate>
+                </HubSection.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Button 
+                            Content="Go to Developer Info" 
+                            Click="DeveloperInfoButton_Click" 
+                            FontSize="24" 
+                            Background="#FF95CDED"
+                            />
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+
+            <HubSection Width="318" Height="150" VerticalAlignment="Top" HorizontalAlignment="Left">
+                <HubSection.HeaderTemplate>
+                    <DataTemplate>
+                        <TextBlock 
+                            Text="Unit Converter" 
+                            FontSize="40" 
+                            FontWeight="Bold" 
+                            Foreground="Black"/>
+                    </DataTemplate>
+                </HubSection.HeaderTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <Button 
+                            Content="Go to Converter" 
+                            Click="ConverterButton_Click" 
+                            FontSize="24" 
+                            Background="#FFE582EE"/>
+                    </StackPanel>
+                </DataTemplate>
+            </HubSection>
+        </Hub>
+        <Image 
+            Height="84" 
+            Margin="1186,626,10,10"
+            VerticalAlignment="Bottom" 
+            Source="/Assets/dariaIcon.png"/>
+    </Grid>
+</Page>
