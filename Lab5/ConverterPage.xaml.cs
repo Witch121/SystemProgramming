@@ -58,7 +58,8 @@ namespace Lab5
             double liters;
             if (double.TryParse(VolumeInput.Text, out liters))
             {
-                VolumeOutput.Text = $"{liters * 2.11338} pints, {liters * 0.264172} gallons";
+                VolumeOutput.Text = $"{liters * 2.11338} US pints, {liters * 0.264172} US gallons, " +
+                                    $" {liters * 1.75975} imperial pints, {liters * 0.219969} imperial gallons";
             }
             else
             {

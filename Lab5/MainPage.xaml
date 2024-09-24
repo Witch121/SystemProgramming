@@ -8,7 +8,7 @@
     mc:Ignorable="d">
 
     <Grid  Background="{ThemeResource InkToolbarButtonSelectedBackgroundThemeBrush}">
-        <!-- Create a Hub Control for the Start Page -->
+        <!-- Hub Control Element for the Start Page -->
         <Hub Margin="100,100,100,100">
 
             <HubSection Width="318" Height="150" VerticalAlignment="Top" HorizontalAlignment="Left">
