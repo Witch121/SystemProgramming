@@ -13,25 +13,26 @@ using Windows.UI.Xaml.Input;
 using Windows.UI.Xaml.Media;
 using Windows.UI.Xaml.Navigation;
 
-namespace Lab5
+// The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
+
+namespace Lab6
 {
-    public sealed partial class MainPage : Page
+    public sealed partial class DeveloperInfoPage : Page
     {
-        public MainPage()
+        public DeveloperInfoPage()
         {
             this.InitializeComponent();
         }
-
-        // Navigate to Developer Info Page
-        private void DeveloperInfoButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
-        {
-            Frame.Navigate(typeof(DeveloperInfoPage));
-        }
-
         // Navigate to Unit Converter Page
         private void ConverterButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
         {
             Frame.Navigate(typeof(ConverterPage));
+        }
+
+        // Navigate to Main Page 
+        private void MainPageButton_Click(object sender, Windows.UI.Xaml.RoutedEventArgs e)
+        {
+            Frame.Navigate(typeof(MainPage));
         }
     }
 }

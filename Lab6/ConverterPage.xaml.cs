@@ -15,7 +15,7 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
-namespace Lab5
+namespace Lab6
 {
     public sealed partial class ConverterPage : Page
     {
