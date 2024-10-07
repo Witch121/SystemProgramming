@@ -1,0 +1,77 @@
+﻿<Page
+    x:Class="lab7.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:lab7"
+    xmlns:muxc="using:Microsoft.UI.Xaml.Controls"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+
+    <Grid Background="#FFCFD1D4">
+        <Button 
+            Content="Select folder" 
+            Click="PickFolderButton_Click"
+            FontSize="25" 
+            Margin="517,210,0,0" 
+            VerticalAlignment="Top" 
+            Background="#FF85C1F0" 
+            BorderBrush="#FF1A444B"
+            />
+        <TextBlock 
+            Text="Choose your folder here →"
+            FontSize="30"
+            HorizontalAlignment="Left"  
+            Margin="50,210,0,0" 
+            TextWrapping="Wrap" 
+            VerticalAlignment="Top"/>
+        <muxc:TreeView x:Name="FolderTreeView"
+            SelectionMode="Single"
+            Expanding="FolderTreeView_Expanding"
+            VerticalAlignment="Top" 
+            Height="360" 
+            Margin="50,301,630,0">
+            <muxc:TreeView.ItemTemplate>
+                <DataTemplate x:DataType="muxc:TreeViewNode">
+                    <TextBlock>
+                            <Run Text="{Binding Content.DisplayName}" />
+                            <Run Text=" (" />
+                            <Run Text="{Binding Content.Size}" />
+                            <Run Text=")" />
+                    </TextBlock>
+                </DataTemplate>
+            </muxc:TreeView.ItemTemplate>
+        </muxc:TreeView>
+        <ProgressRing x:Name="LoadingIndicator" 
+                      IsActive="False" 
+                      Visibility="Collapsed" 
+                      Width="50" Height="50" 
+                      HorizontalAlignment="Center" 
+                      VerticalAlignment="Center" />
+        <TextBlock x:Name="ErrorMessage" 
+                   Visibility="Collapsed" 
+                   Foreground="Red" 
+                   HorizontalAlignment="Center" 
+                   VerticalAlignment="Top" 
+                   FontSize="20" />
+        <Button 
+            Content="Copy" 
+            Click="CopyButton_Click"
+            FontSize="25" 
+            Margin="753,210,0,0" 
+            VerticalAlignment="Top" 
+            Background="#FF9AF085" 
+            BorderBrush="#FF216C0F"
+            />
+        <Button 
+            Content="Delete" 
+            Click="DeleteButton_Click"
+            FontSize="25" 
+            Margin="865,210,0,0" 
+            VerticalAlignment="Top" 
+            Background="#FFCC85F0" 
+            BorderBrush="#FF380F6C"
+            />
+    </Grid>
+</Page>
